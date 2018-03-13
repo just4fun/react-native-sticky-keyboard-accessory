@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
+  Platform,
   Keyboard,
   StyleSheet,
   LayoutAnimation
@@ -22,23 +23,31 @@ export default class KeyboardAccessory extends Component {
   }
 
   componentDidMount() {
-    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', (e) => this.keyboardWillShow(e));
-    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', (e) => this.keyboardWillHide(e));
+    let keyboardShowEvent = 'keyboardWillShow';
+    let keyboardHideEvent = 'keyboardWillHide';
+
+    if (Platform.OS === 'android') {
+      keyboardShowEvent = 'keyboardDidShow';
+      keyboardHideEvent = 'keyboardDidHide';
+    }
+
+    this.keyboardShowListener = Keyboard.addListener(keyboardShowEvent, (e) => this.keyboardShow(e));
+    this.keyboardHideListener = Keyboard.addListener(keyboardHideEvent, (e) => this.keyboardHide(e));
   }
 
   componentWillUnmount() {
-    this.keyboardWillShowListener.remove();
-    this.keyboardWillHideListener.remove();
+    this.keyboardShowListener.remove();
+    this.keyboardHideListener.remove();
   }
 
-  keyboardWillShow(e) {
+  keyboardShow(e) {
     LayoutAnimation.easeInEaseOut();
     this.setState({
       bottom: isIphoneX() ? (e.endCoordinates.height - SAFE_AREA_BOTTOM_HEIGHT) : e.endCoordinates.height
     });
   }
 
-  keyboardWillHide(e) {
+  keyboardHide(e) {
     LayoutAnimation.easeInEaseOut();
     this.setState({
       bottom: 0
