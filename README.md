@@ -1,5 +1,10 @@
 # react-native-sticky-keyboard-accessory
 
+[![npm downloads](https://img.shields.io/npm/dm/react-native-sticky-keyboard-accessory.svg)](https://www.npmjs.com/package/react-native-sticky-keyboard-accessory)
+[![version](https://img.shields.io/npm/v/react-native-sticky-keyboard-accessory.svg)](https://www.npmjs.com/package/react-native-sticky-keyboard-accessory)
+[![GitHub issues](https://img.shields.io/github/issues/just4fun/react-native-sticky-keyboard-accessory.svg)](https://github.com/just4fun/react-native-sticky-keyboard-accessory/issues)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+
 ## Preview
 
 ![iphone7](https://user-images.githubusercontent.com/7512625/37331257-6ee9b030-26de-11e8-8311-d7dc121d7d35.gif)
