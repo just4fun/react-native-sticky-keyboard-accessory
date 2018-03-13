@@ -47,7 +47,11 @@ export default class KeyboardAccessory extends Component {
 
   render() {
     let { bottom } = this.state;
-    let { backgroundColor } = this.props;
+    let { children, backgroundColor } = this.props;
+
+    if (!children) {
+      throw new Error('`children` Missing. You should wrap at least one component into <KeyboardAccessory />.');
+    }
 
     return (
       <View style={[styles.container, { backgroundColor, bottom }]}>
