@@ -10,6 +10,10 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 const SAFE_AREA_BOTTOM_HEIGHT = 34;
 
 export default class KeyboardAccessory extends Component {
+  static defaultProps = {
+    backgroundColor: '#f6f6f6'
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,9 +47,10 @@ export default class KeyboardAccessory extends Component {
 
   render() {
     let { bottom } = this.state;
+    let { backgroundColor } = this.props;
 
     return (
-      <View style={[styles.container, { bottom }]}>
+      <View style={[styles.container, { backgroundColor, bottom }]}>
         {this.props.children}
       </View>
     );
@@ -54,7 +59,6 @@ export default class KeyboardAccessory extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f6f6f6',
     position: 'absolute',
     left: 0,
     right: 0,
