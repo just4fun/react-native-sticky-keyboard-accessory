@@ -3,6 +3,7 @@ import {
   View,
   Platform,
   Keyboard,
+  UIManager,
   StyleSheet,
   LayoutAnimation
 } from 'react-native';
@@ -20,6 +21,10 @@ export default class KeyboardAccessory extends Component {
     this.state = {
       bottom: 0
     };
+    // Enable `LayoutAnimation` for Android.
+    if (UIManager.setLayoutAnimationEnabledExperimental) {
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
   }
 
   componentDidMount() {
