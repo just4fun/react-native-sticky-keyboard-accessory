@@ -1,8 +1,23 @@
 {
   "name": "react-native-sticky-keyboard-accessory",
   "version": "0.1.1",
+  "description": "📎 A sticky wrapper above keyboard to include whatever you want.",
   "main": "src/index.js",
-  "repository": "git@github.com:just4fun/react-native-sticky-keyboard-accessory.git",
+  "keywords": [
+    "react",
+    "react-native",
+    "sticky",
+    "keyboard",
+    "accessory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/just4fun/react-native-sticky-keyboard-accessory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/just4fun/react-native-sticky-keyboard-accessory/issues"
+  },
+  "homepage": "https://github.com/just4fun/react-native-sticky-keyboard-accessory#readme",
   "author": "just4fun <houritsunohikari@gmail.com>",
   "license": "MIT",
   "dependencies": {
