@@ -7,9 +7,7 @@ import {
   StyleSheet,
   LayoutAnimation
 } from 'react-native';
-import { isIphoneX } from 'react-native-iphone-x-helper';
-
-const SAFE_AREA_BOTTOM_HEIGHT = 34;
+import { isIphoneX, getBottomSpace } from 'react-native-iphone-x-helper';
 
 export default class KeyboardAccessory extends Component {
   static defaultProps = {
@@ -48,7 +46,7 @@ export default class KeyboardAccessory extends Component {
   keyboardShow(e) {
     LayoutAnimation.easeInEaseOut();
     this.setState({
-      bottom: isIphoneX() ? (e.endCoordinates.height - SAFE_AREA_BOTTOM_HEIGHT) : e.endCoordinates.height
+      bottom: isIphoneX() ? (e.endCoordinates.height - getBottomSpace()) : e.endCoordinates.height
     });
   }
 
