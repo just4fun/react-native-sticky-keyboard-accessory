@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   View,
-  Alert,
   Keyboard,
   TextInput,
   StyleSheet,
@@ -10,37 +9,33 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import KeyboardAccessory from 'react-native-sticky-keyboard-accessory';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.wrapper}>
-          <KeyboardAccessory>
-            <View style={styles.keyboardAccessoryContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder='Click me!' />
-              <Icon
-                style={styles.keyboardAccessoryItem}
-                name='smile-o'
-                size={30} />
-              <Icon
-                style={styles.keyboardAccessoryItem}
-                name='angle-down'
-                size={30}
-                onPress={() => Keyboard.dismiss()} />
-            </View>
-          </KeyboardAccessory>
+export default App = (props) => (
+  <SafeAreaView style={styles.container}>
+    <View style={styles.wrapper}>
+      <KeyboardAccessory>
+        <View style={styles.keyboardAccessoryContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder='Click me!' />
+          <Icon
+            style={styles.keyboardAccessoryItem}
+            name='smile-o'
+            size={30} />
+          <Icon
+            style={styles.keyboardAccessoryItem}
+            name='angle-down'
+            size={30}
+            onPress={() => Keyboard.dismiss()} />
         </View>
-      </SafeAreaView>
-    );
-  }
-}
+      </KeyboardAccessory>
+    </View>
+  </SafeAreaView>
+)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4fa7ff'
+    backgroundColor: '#fff'
   },
   wrapper: {
     flex: 1,
