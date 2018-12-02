@@ -5,9 +5,16 @@
 [![GitHub issues](https://img.shields.io/github/issues/just4fun/react-native-sticky-keyboard-accessory.svg)](https://github.com/just4fun/react-native-sticky-keyboard-accessory/issues)
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
+## Motivation
+
+This library was initially built for my following projects.
+
+- [just4fun/react-native-smart-emoji-picker](https://github.com/just4fun/react-native-smart-emoji-picker)
+- [just4fun/stuhome](https://github.com/just4fun/stuhome)
+
 ## Preview
 
-![iphone7](https://user-images.githubusercontent.com/7512625/37331257-6ee9b030-26de-11e8-8311-d7dc121d7d35.gif)
+![iphone7](https://user-images.githubusercontent.com/7512625/49340995-362e8580-f682-11e8-8e59-3d496e9bc049.gif)
 ![nexus5](https://user-images.githubusercontent.com/7512625/37331060-d20bf8b8-26dd-11e8-9770-385b33a109f6.gif)
 
 ## Installation
@@ -50,17 +57,30 @@ import KeyboardAccessory from 'react-native-sticky-keyboard-accessory';
 - Update `bottom` to the height of keyboard when keyboard show
 - Reset `bottom` to `0` once keyboard hide
 
-#### iPhoneX
-
-As you see, there is such line in source code.
-
 ```javascript
-this.setState({
-  bottom: isIphoneX() ? (e.endCoordinates.height - 34) : e.endCoordinates.height
-});
+import { isIphoneX, getBottomSpace } from 'react-native-iphone-x-helper';
+
+componentDidMount() {
+  this.keyboardShowListener = Keyboard.addListener(keyboardShowEvent, (e) => this.keyboardShow(e));
+  this.keyboardHideListener = Keyboard.addListener(keyboardHideEvent, (e) => this.keyboardHide(e));
+}
+
+keyboardShow(e) {
+  this.setState({
+    bottom: isIphoneX() ? (e.endCoordinates.height - getBottomSpace()) : e.endCoordinates.height
+  });
+}
+
+keyboardHide(e) {
+  this.setState({
+    bottom: 0
+  });
+}
 ```
 
-To be honest, if you just wrap `<KeyboardAccessory>` into `<SafeAreaView>`, it doesn't work.
+#### iPhone X (iPhone XR, iPhone XS, iPhone XS Max)
+
+For new iPhones, if you just wrap `<KeyboardAccessory>` into `<SafeAreaView>`, the UI doesn't look good.
 
 ```javascript
 <SafeAreaView style={{ flex: 1 }}>
@@ -70,9 +90,9 @@ To be honest, if you just wrap `<KeyboardAccessory>` into `<SafeAreaView>`, it d
 </SafeAreaView>
 ```
 
-In this way, your `<KeyboardAccessory>` will occupy bottom safe area actually.
+In this way, your `<KeyboardAccessory>` will actually occupy bottom safe area.
 
-You should wrap with one more `<View>` for `<KeyboardAccessory>`.
+You should wrap one more `<View>` for `<KeyboardAccessory>`.
 
 ```javascript
 <SafeAreaView style={{ flex: 1 }}>
@@ -84,7 +104,7 @@ You should wrap with one more `<View>` for `<KeyboardAccessory>`.
 </SafeAreaView>
 ```
 
-![iphonex](https://user-images.githubusercontent.com/7512625/37330533-5db80480-26dc-11e8-8c7f-1f81b540962b.gif)
+![iphonex](https://user-images.githubusercontent.com/7512625/49341074-5e6ab400-f683-11e8-8737-544bf31ee332.gif)
 
 You can try it out with [example](example-expo) project.
 
