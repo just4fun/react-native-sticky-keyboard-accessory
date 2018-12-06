@@ -11,7 +11,8 @@ import { isIphoneX, getBottomSpace } from 'react-native-iphone-x-helper';
 
 export default class KeyboardAccessory extends Component {
   static defaultProps = {
-    backgroundColor: '#f6f6f6'
+    backgroundColor: '#f6f6f6',
+    verticalOffset: 0,
   }
 
   constructor(props) {
@@ -59,7 +60,10 @@ export default class KeyboardAccessory extends Component {
 
   render() {
     let { bottom } = this.state;
-    let { children, backgroundColor } = this.props;
+    let { children, backgroundColor, verticalOffset } = this.props;
+    
+    //adds verticalOffset prop to bottom
+    bottom = bottom + verticalOffset;
 
     if (!children) {
       throw new Error('`children` Missing. You should wrap at least one component into <KeyboardAccessory />.');
