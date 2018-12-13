@@ -111,6 +111,7 @@ You can try it out with [example](example-expo) project.
 ## Props
 
 - `backgroundColor` _(string)_ - Color of keyboard accessory's background, defaults to `#f6f6f6`.
+- `verticalOffset` _(number)_ - Adds a vertical offset, default is 0.
 
 ## License
 
