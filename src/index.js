@@ -61,7 +61,9 @@ export default class KeyboardAccessory extends Component {
   render() {
     let { bottom } = this.state;
     let { children, backgroundColor, verticalOffset } = this.props;
-    bottom = bottom + verticalOffset;
+    if (bottom != 0) {
+      bottom = bottom + verticalOffset;
+    }
 
     if (!children) {
       throw new Error('`children` Missing. You should wrap at least one component into <KeyboardAccessory />.');
