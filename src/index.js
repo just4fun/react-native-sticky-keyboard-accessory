@@ -61,7 +61,7 @@ export default class KeyboardAccessory extends Component {
   render() {
     let { bottom } = this.state;
     let { children, backgroundColor, verticalOffset } = this.props;
-    if (bottom != 0) {
+    if (bottom !== 0) {
       bottom = bottom + verticalOffset;
     }
 
