@@ -1,6 +1,6 @@
 {
   "name": "react-native-sticky-keyboard-accessory",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "📎 A sticky wrapper above keyboard to include whatever you want.",
   "main": "src/index.js",
   "keywords": [
