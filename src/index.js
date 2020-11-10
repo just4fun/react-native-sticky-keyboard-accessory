@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Platform,
   Keyboard,
   UIManager,
   StyleSheet,
@@ -29,11 +28,6 @@ export default class KeyboardAccessory extends Component {
   componentDidMount() {
     let keyboardShowEvent = 'keyboardWillShow';
     let keyboardHideEvent = 'keyboardWillHide';
-
-    if (Platform.OS === 'android') {
-      keyboardShowEvent = 'keyboardDidShow';
-      keyboardHideEvent = 'keyboardDidHide';
-    }
 
     this.keyboardShowListener = Keyboard.addListener(keyboardShowEvent, (e) => this.keyboardShow(e));
     this.keyboardHideListener = Keyboard.addListener(keyboardHideEvent, (e) => this.keyboardHide(e));
