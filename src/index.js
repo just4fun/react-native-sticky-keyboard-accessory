@@ -7,8 +7,7 @@ import {
   StyleSheet,
   LayoutAnimation
 } from 'react-native';
-import { isIphoneX, getBottomSpace } from 'react-native-iphone-x-helper';
-
+import { isIphoneX, getBottomSpace } from 'rn-iphone-helper'
 export default class KeyboardAccessory extends Component {
   static defaultProps = {
     backgroundColor: '#f6f6f6',

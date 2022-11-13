@@ -21,6 +21,6 @@
   "author": "just4fun <houritsunohikari@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "react-native-iphone-x-helper": "^1.2.0"
+    "rn-iphone-helper": "^1.0.0"
   }
 }
